@@ -1,17 +1,14 @@
-<section class="top-nav">
-    <div>
-        <img src="{{ asset('assets/img/encontre-trabajo-blanco.png') }}" alt="" style="width: 180px; margin-top: -10px;">
+<header class="shared-navbar">
+    <div class="shared-navbar__container">
+        <a class="shared-navbar__brand" href="{{ url('/') }}">
+            <img src="{{ asset('assets/img/Logo-footer-color.png') }}" alt="Encontré Trabajo">
+        </a>
+
+        <nav class="shared-navbar__menu">
+            <a href="{{ url('/') }}">Inicio</a>
+            <a href="{{ url('/jobs') }}">Buscar empleos</a>
+            <a href="{{ url('/recruitment') }}">Reclutamiento y selección</a>
+            <a class="shared-navbar__btn" href="{{ env('PLATFORM_URL').'/register' }}">Crear cuenta</a>
+        </nav>
     </div>
-    <input id="menu-toggle" type="checkbox" />
-    <label class='menu-button-container' for="menu-toggle">
-        <div class='menu-button'></div>
-    </label>
-    <ul class="menu">
-        <li><a class="item-menu_a" href="{{ url('/') }}">Inicio</a></li>
-        <li><a class="item-menu_a" href="{{ url('quienes-somos') }}">Quienes Somos</a></li>
-        <li><a class="item-menu_a" href="{{ url('/jobs') }}">Buscar Empleos</a></li>
-        <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/offers/create' }}"  style="color: #ffc107;">Publica tu oferta</a></li>
-        <li><a class="item-menu_a" href="{{ env('PLATFORM_URL').'/register' }}">Crea tu cuenta</a></li>
-        <li class="item-menu_a menu-btn-et_a_li"><a class="item-menu_a menu-btn-et_a" href="{{ env('PLATFORM_URL').'/' }}">Ingresa a tu cuenta</a></li>
-    </ul>
-</section> 
+</header>

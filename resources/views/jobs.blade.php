@@ -322,7 +322,8 @@
 
                 this.jobSearch = localStorage.getItem("encontre_trabajo_job_search")
                 this.regionSearch = localStorage.getItem("encontre_trabajo_region_search")
-                this.categorySearch = localStorage.getItem("encontre_trabajo_category_search")
+                this.category = localStorage.getItem("encontre_trabajo_category_search")
+                this.categorySearch = this.category
                 this.query()
                 
             }

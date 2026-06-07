@@ -14,6 +14,7 @@
 	<link href="{{ asset('assets/css/slick-theme.css') }}" rel="stylesheet" />
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/shared-navbar.css') }}" rel="stylesheet" />
 
     <style>
         .elipse{

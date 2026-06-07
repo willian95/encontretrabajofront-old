@@ -1,0 +1,389 @@
+:root {
+    --welcome-green: #10b981;
+    --welcome-green-dark: #047857;
+    --welcome-green-soft: #d1fae5;
+    --welcome-dark: #0f172a;
+    --welcome-gray: #64748b;
+    --welcome-light: #f8fafc;
+    --welcome-white: #ffffff;
+    --welcome-radius: 24px;
+}
+
+.welcome-modern,
+.welcome-modern * {
+    box-sizing: border-box;
+}
+
+.welcome-modern {
+    font-family: "Inter", sans-serif;
+    color: var(--welcome-dark);
+    background: var(--welcome-light);
+}
+
+.welcome-modern__header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.welcome-modern__container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.welcome-modern__nav {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.welcome-modern__logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.welcome-modern__logo img {
+    width: 220px;
+    height: auto;
+    display: block;
+}
+
+.welcome-modern__menu {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.welcome-modern__menu a {
+    text-decoration: none;
+    color: var(--welcome-dark);
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.welcome-modern__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: none;
+    background: var(--welcome-green);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 14px 30px rgba(16, 185, 129, 0.25);
+    transition: transform 0.2s ease;
+}
+
+.welcome-modern__btn:hover {
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+.welcome-modern__btn--secondary {
+    background: var(--welcome-white);
+    color: var(--welcome-green-dark);
+    border: 1px solid #bbf7d0;
+    box-shadow: none;
+}
+
+.welcome-modern__btn--secondary:hover {
+    color: var(--welcome-green-dark);
+}
+
+.welcome-modern__hero {
+    padding: 82px 0 50px;
+    background:
+        radial-gradient(circle at 80% 20%, #bbf7d0 0, transparent 32%),
+        linear-gradient(135deg, #ecfdf5 0%, #ffffff 65%);
+}
+
+.welcome-modern__hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.welcome-modern__badge {
+    display: inline-flex;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: var(--welcome-green-soft);
+    color: var(--welcome-green-dark);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.welcome-modern h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -2.5px;
+    margin-bottom: 24px;
+}
+
+.welcome-modern h1 span {
+    color: var(--welcome-green-dark);
+}
+
+.welcome-modern__hero p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--welcome-gray);
+    max-width: 620px;
+    margin-bottom: 32px;
+}
+
+.welcome-modern__hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.welcome-modern__hero-card {
+    background: var(--welcome-white);
+    padding: 28px;
+    border-radius: 32px;
+    box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+    border: 1px solid #e2e8f0;
+}
+
+.welcome-modern__hero-card h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.welcome-modern__search-box {
+    display: grid;
+    gap: 14px;
+}
+
+.welcome-modern__search-box input,
+.welcome-modern__search-box select {
+    width: 100%;
+    padding: 17px 18px;
+    border-radius: 16px;
+    border: 1px solid #dbeafe;
+    font-size: 15px;
+    outline: none;
+    background: #f8fafc;
+    color: var(--welcome-dark);
+}
+
+.welcome-modern__search-box input::placeholder {
+    color: #64748b;
+    opacity: 1;
+}
+
+.welcome-modern__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.welcome-modern__stat {
+    background: #ecfdf5;
+    padding: 18px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.welcome-modern__stat strong {
+    display: block;
+    color: var(--welcome-green-dark);
+    font-size: 26px;
+}
+
+.welcome-modern section {
+    padding: 76px 0;
+}
+
+.welcome-modern__section-title {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 44px;
+}
+
+.welcome-modern__section-title h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    letter-spacing: -1.5px;
+    margin-bottom: 14px;
+}
+
+.welcome-modern__section-title p,
+.welcome-modern__card p {
+    color: var(--welcome-gray);
+    line-height: 1.7;
+}
+
+.welcome-modern__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.welcome-modern__card {
+    background: var(--welcome-white);
+    padding: 30px;
+    border-radius: var(--welcome-radius);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+}
+
+.welcome-modern__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: var(--welcome-green-soft);
+    color: var(--welcome-green-dark);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.welcome-modern__card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.welcome-modern__jobs {
+    background: #052e2b;
+    color: white;
+}
+
+.welcome-modern__jobs .welcome-modern__section-title p {
+    color: #cbd5e1;
+}
+
+.welcome-modern__job-list {
+    display: grid;
+    gap: 16px;
+}
+
+.welcome-modern__job {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 22px;
+    border-radius: 22px;
+}
+
+.welcome-modern__job small {
+    color: #bbf7d0;
+    font-weight: 700;
+}
+
+.welcome-modern__plans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.welcome-modern__plan {
+    background: white;
+    padding: 32px;
+    border-radius: 28px;
+    border: 1px solid #d1fae5;
+}
+
+.welcome-modern__plan--featured {
+    background: var(--welcome-green-dark);
+    color: white;
+    transform: translateY(-10px);
+}
+
+.welcome-modern__price {
+    font-size: 38px;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.welcome-modern__plan ul {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    margin-bottom: 26px;
+    padding-left: 0;
+}
+
+.welcome-modern__plan li::before {
+    content: "✓";
+    color: var(--welcome-green);
+    font-weight: 800;
+    margin-right: 8px;
+}
+
+.welcome-modern__plan--featured li::before {
+    color: #a7f3d0;
+}
+
+.welcome-modern__cta {
+    background: linear-gradient(135deg, var(--welcome-green-dark), var(--welcome-green));
+    color: white;
+    border-radius: 36px;
+    padding: 56px;
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    align-items: center;
+}
+
+.welcome-modern__cta h2 {
+    font-size: 40px;
+    max-width: 620px;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.welcome-modern__footer {
+    padding: 36px 0;
+    color: var(--welcome-gray);
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .welcome-modern__menu {
+        display: none;
+    }
+
+    .welcome-modern__hero-grid,
+    .welcome-modern__cards,
+    .welcome-modern__plans {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-modern__stats {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-modern__job,
+    .welcome-modern__cta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .welcome-modern__cta {
+        padding: 34px;
+    }
+
+    .welcome-modern__plan--featured {
+        transform: none;
+    }
+}

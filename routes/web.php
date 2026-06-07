@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/recruitment', function () {
+    return view('recruitment');
+});
+
 Route::get("/search", "SearchController@index");
 Route::get("/jobs", "SearchController@jobs");
 Route::post("/search", "SearchController@search");
