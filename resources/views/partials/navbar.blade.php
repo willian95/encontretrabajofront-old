@@ -8,7 +8,7 @@
             <a href="{{ url('/') }}">Inicio</a>
             <a href="{{ url('/jobs') }}">Buscar empleos</a>
             <a href="{{ url('/recruitment') }}">Reclutamiento y selección</a>
-            <a class="shared-navbar__btn" href="{{ env('PLATFORM_URL').'/register' }}">Crear cuenta</a>
+            <a class="shared-navbar__btn" href="https://app.encontretrabajo.cl/register">Crear cuenta</a>
         </nav>
     </div>
 </header>
