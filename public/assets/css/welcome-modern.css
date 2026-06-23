@@ -1,7 +1,9 @@
 :root {
-    --welcome-green: #10b981;
-    --welcome-green-dark: #047857;
-    --welcome-green-soft: #d1fae5;
+    --welcome-blue: #38bdf8;
+    --welcome-blue-dark: #0284c7;
+    --welcome-blue-soft: #e0f2fe;
+    --welcome-accent: #14b8a6;
+    --welcome-accent-soft: #ccfbf1;
     --welcome-dark: #0f172a;
     --welcome-gray: #64748b;
     --welcome-light: #f8fafc;
@@ -74,13 +76,13 @@
     justify-content: center;
     text-decoration: none;
     border: none;
-    background: var(--welcome-green);
+    background: linear-gradient(135deg, var(--welcome-blue-dark), var(--welcome-blue));
     color: white;
     padding: 14px 22px;
     border-radius: 999px;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 14px 30px rgba(16, 185, 129, 0.25);
+    box-shadow: 0 14px 30px rgba(37, 99, 235, 0.24);
     transition: transform 0.2s ease;
 }
 
@@ -92,20 +94,21 @@
 
 .welcome-modern__btn--secondary {
     background: var(--welcome-white);
-    color: var(--welcome-green-dark);
-    border: 1px solid #bbf7d0;
+    color: var(--welcome-blue-dark);
+    border: 1px solid var(--welcome-blue-soft);
     box-shadow: none;
 }
 
 .welcome-modern__btn--secondary:hover {
-    color: var(--welcome-green-dark);
+    color: var(--welcome-blue-dark);
 }
 
 .welcome-modern__hero {
     padding: 82px 0 50px;
     background:
-        radial-gradient(circle at 80% 20%, #bbf7d0 0, transparent 32%),
-        linear-gradient(135deg, #ecfdf5 0%, #ffffff 65%);
+        radial-gradient(circle at 82% 18%, rgba(20, 184, 166, 0.14) 0, transparent 24%),
+        radial-gradient(circle at 18% 12%, rgba(125, 211, 252, 0.42) 0, transparent 30%),
+        linear-gradient(135deg, #f0f9ff 0%, #ffffff 68%);
 }
 
 .welcome-modern__hero-grid {
@@ -119,8 +122,8 @@
     display: inline-flex;
     padding: 9px 14px;
     border-radius: 999px;
-    background: var(--welcome-green-soft);
-    color: var(--welcome-green-dark);
+    background: var(--welcome-blue-soft);
+    color: var(--welcome-blue-dark);
     font-weight: 700;
     font-size: 14px;
     margin-bottom: 24px;
@@ -134,7 +137,7 @@
 }
 
 .welcome-modern h1 span {
-    color: var(--welcome-green-dark);
+    color: var(--welcome-blue-dark);
 }
 
 .welcome-modern__hero p {
@@ -174,7 +177,7 @@
     width: 100%;
     padding: 17px 18px;
     border-radius: 16px;
-    border: 1px solid #dbeafe;
+    border: 1px solid #cfefff;
     font-size: 15px;
     outline: none;
     background: #f8fafc;
@@ -194,7 +197,7 @@
 }
 
 .welcome-modern__stat {
-    background: #ecfdf5;
+    background: #f0f9ff;
     padding: 18px;
     border-radius: 18px;
     text-align: center;
@@ -202,7 +205,7 @@
 
 .welcome-modern__stat strong {
     display: block;
-    color: var(--welcome-green-dark);
+    color: var(--welcome-blue-dark);
     font-size: 26px;
 }
 
@@ -246,8 +249,8 @@
     width: 52px;
     height: 52px;
     border-radius: 16px;
-    background: var(--welcome-green-soft);
-    color: var(--welcome-green-dark);
+    background: var(--welcome-blue-soft);
+    color: var(--welcome-blue-dark);
     display: grid;
     place-items: center;
     font-size: 18px;
@@ -261,7 +264,7 @@
 }
 
 .welcome-modern__jobs {
-    background: #052e2b;
+    background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 48%, #0ea5e9 100%);
     color: white;
 }
 
@@ -286,7 +289,7 @@
 }
 
 .welcome-modern__job small {
-    color: #bbf7d0;
+    color: #bae6fd;
     font-weight: 700;
 }
 
@@ -300,11 +303,11 @@
     background: white;
     padding: 32px;
     border-radius: 28px;
-    border: 1px solid #d1fae5;
+    border: 1px solid #e0f2fe;
 }
 
 .welcome-modern__plan--featured {
-    background: var(--welcome-green-dark);
+    background: linear-gradient(160deg, #0ea5e9 0%, #38bdf8 68%, #14b8a6 100%);
     color: white;
     transform: translateY(-10px);
 }
@@ -325,17 +328,17 @@
 
 .welcome-modern__plan li::before {
     content: "✓";
-    color: var(--welcome-green);
+    color: var(--welcome-blue);
     font-weight: 800;
     margin-right: 8px;
 }
 
 .welcome-modern__plan--featured li::before {
-    color: #a7f3d0;
+    color: #e0f2fe;
 }
 
 .welcome-modern__cta {
-    background: linear-gradient(135deg, var(--welcome-green-dark), var(--welcome-green));
+    background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 72%, #14b8a6 100%);
     color: white;
     border-radius: 36px;
     padding: 56px;

@@ -11,6 +11,20 @@
             list-style: unset !important;
             padding: revert;
         }
+
+        .jobs-search-btn {
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            border-color: #0284c7;
+            color: #ffffff;
+            box-shadow: 0 12px 24px rgba(14, 165, 233, 0.2);
+        }
+
+        .jobs-search-btn:hover,
+        .jobs-search-btn:focus {
+            background: linear-gradient(135deg, #0369a1, #0ea5e9);
+            border-color: #0369a1;
+            color: #ffffff;
+        }
     </style>
 
 @endpush
@@ -52,7 +66,7 @@
                             </div>
 
                             <p class="text-center">
-                                <button class="btn btn-success" @click="query()">buscar</button>
+                                <button class="btn jobs-search-btn" @click="query()">buscar</button>
                             </p>
                         </div>
                     </div>

@@ -3,19 +3,19 @@
 @push('css')
     <style>
         .recruitment-page {
-            --recruitment-green: #0ea665;
-            --recruitment-green-dark: #087747;
-            --recruitment-green-soft: #e9f8ef;
-            --recruitment-green-pale: #f2fbf5;
-            --recruitment-blue: #12648e;
-            --recruitment-blue-dark: #0b3f5a;
-            --recruitment-sky: #cceffc;
-            --recruitment-light: #f6fbf7;
-            --recruitment-text: #183628;
-            --recruitment-muted: #61776c;
-            --recruitment-line: #d8e9dd;
+            --recruitment-blue: #38bdf8;
+            --recruitment-blue-dark: #0284c7;
+            --recruitment-blue-deep: #1d4ed8;
+            --recruitment-blue-soft: #e0f2fe;
+            --recruitment-blue-pale: #f0f9ff;
+            --recruitment-accent: #14b8a6;
+            --recruitment-accent-soft: #ccfbf1;
+            --recruitment-light: #f8fafc;
+            --recruitment-text: #0f172a;
+            --recruitment-muted: #64748b;
+            --recruitment-line: #e2e8f0;
             --recruitment-white: #ffffff;
-            --recruitment-shadow: 0 18px 50px rgba(8, 119, 71, 0.12);
+            --recruitment-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
             background: var(--recruitment-white);
             color: var(--recruitment-text);
             font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -56,14 +56,15 @@
         }
 
         .recruitment-btn--primary {
-            background: var(--recruitment-green);
+            background: linear-gradient(135deg, var(--recruitment-blue-dark), var(--recruitment-blue));
             color: #fff;
-            box-shadow: 0 12px 24px rgba(14, 166, 101, 0.26);
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.24);
         }
 
         .recruitment-btn--secondary {
-            background: var(--recruitment-blue);
-            color: #fff;
+            background: var(--recruitment-white);
+            color: var(--recruitment-blue-dark);
+            border-color: var(--recruitment-blue-soft);
         }
 
         .recruitment-btn--ghost {
@@ -74,9 +75,9 @@
 
         .recruitment-hero {
             background:
-                radial-gradient(circle at 82% 22%, rgba(14, 166, 101, 0.26), transparent 28%),
-                radial-gradient(circle at 20% 0%, rgba(193, 241, 215, 0.3), transparent 24%),
-                linear-gradient(135deg, var(--recruitment-green-dark), #0e8f57 56%, var(--recruitment-blue));
+                radial-gradient(circle at 82% 18%, rgba(20, 184, 166, 0.14), transparent 24%),
+                radial-gradient(circle at 18% 12%, rgba(125, 211, 252, 0.42), transparent 30%),
+                linear-gradient(135deg, #0f172a 0%, #1d4ed8 48%, #0ea5e9 100%);
             color: #fff;
             padding: 86px 0 96px;
             overflow: hidden;
@@ -102,8 +103,8 @@
         }
 
         .recruitment-eyebrow.dark {
-            background: rgba(14, 166, 101, 0.12);
-            color: var(--recruitment-green-dark);
+            background: var(--recruitment-blue-soft);
+            color: var(--recruitment-blue-dark);
         }
 
         .recruitment-page h1,
@@ -154,15 +155,16 @@
             border-radius: 30px;
             padding: 38px;
             min-height: 430px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+            border: 1px solid var(--recruitment-line);
         }
 
         .recruitment-panel-badge {
             display: inline-flex;
             border-radius: 999px;
             padding: 9px 14px;
-            background: var(--recruitment-green-soft);
-            color: var(--recruitment-green-dark);
+            background: var(--recruitment-blue-soft);
+            color: var(--recruitment-blue-dark);
             font-size: 13px;
             font-weight: 900;
         }
@@ -170,7 +172,7 @@
         .recruitment-hero-panel h2 {
             font-size: 34px;
             margin-top: 24px;
-            color: var(--recruitment-green-dark);
+            color: var(--recruitment-blue-dark);
         }
 
         .recruitment-check-list {
@@ -183,7 +185,7 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            background: var(--recruitment-light);
+            background: var(--recruitment-blue-pale);
             border-radius: 14px;
             padding: 16px;
             font-weight: 800;
@@ -193,7 +195,7 @@
             width: 20px;
             height: 20px;
             border-radius: 999px;
-            background: var(--recruitment-green);
+            background: var(--recruitment-blue);
             flex: 0 0 auto;
         }
 
@@ -225,7 +227,7 @@
         .recruitment-quick-stats strong {
             display: block;
             font-size: 30px;
-            color: var(--recruitment-green-dark);
+            color: var(--recruitment-blue-dark);
             letter-spacing: -0.03em;
         }
 
@@ -279,9 +281,16 @@
         }
 
         .recruitment-plan-card.featured {
-            border: 2px solid var(--recruitment-green);
+            border: 2px solid var(--recruitment-blue);
             transform: translateY(-18px);
-            background: linear-gradient(180deg, #ffffff 0%, #f4fcf7 100%);
+            background: linear-gradient(160deg, #0ea5e9 0%, #38bdf8 68%, #14b8a6 100%);
+            color: #fff;
+        }
+
+        .recruitment-plan-card--technical.featured {
+            background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--recruitment-text);
+            border-color: #7dd3fc;
         }
 
         .recruitment-featured-label {
@@ -289,7 +298,7 @@
             top: 0;
             right: 28px;
             transform: translateY(-50%);
-            background: var(--recruitment-green);
+            background: linear-gradient(135deg, var(--recruitment-blue-dark), var(--recruitment-blue));
             color: white;
             border-radius: 999px;
             padding: 9px 16px;
@@ -301,7 +310,7 @@
             font-size: 52px;
             line-height: 1;
             font-weight: 900;
-            color: var(--recruitment-green);
+            color: var(--recruitment-blue-dark);
             letter-spacing: -0.05em;
             margin: 22px 0 6px;
         }
@@ -323,6 +332,24 @@
             line-height: 1.55;
         }
 
+        .recruitment-plan-card.featured .recruitment-price,
+        .recruitment-plan-card.featured .recruitment-per,
+        .recruitment-plan-card.featured .recruitment-range,
+        .recruitment-plan-card.featured p,
+        .recruitment-plan-card.featured h3,
+        .recruitment-plan-card.featured li {
+            color: #fff;
+        }
+
+        .recruitment-plan-card--technical.featured .recruitment-price,
+        .recruitment-plan-card--technical.featured .recruitment-per,
+        .recruitment-plan-card--technical.featured .recruitment-range,
+        .recruitment-plan-card--technical.featured p,
+        .recruitment-plan-card--technical.featured h3,
+        .recruitment-plan-card--technical.featured li {
+            color: var(--recruitment-text);
+        }
+
         .recruitment-plan-card ul {
             padding: 0;
             margin: 22px 0 30px;
@@ -337,11 +364,23 @@
             color: #344054;
         }
 
+        .recruitment-plan-card li.recruitment-guarantee-item {
+            color: #64748b;
+        }
+
         .recruitment-plan-card li::before {
             content: '✓';
-            color: var(--recruitment-green);
+            color: var(--recruitment-blue);
             font-weight: 900;
             margin-right: 10px;
+        }
+
+        .recruitment-plan-card.featured li::before {
+            color: #e0f2fe;
+        }
+
+        .recruitment-plan-card--technical.featured li::before {
+            color: var(--recruitment-blue-dark);
         }
 
         .recruitment-plan-card .recruitment-btn {
@@ -367,7 +406,7 @@
             width: 46px;
             height: 46px;
             border-radius: 999px;
-            background: var(--recruitment-green);
+            background: linear-gradient(135deg, var(--recruitment-blue-dark), var(--recruitment-blue));
             color: white;
             font-size: 20px;
             margin-bottom: 20px;
@@ -387,7 +426,7 @@
         }
 
         .recruitment-guarantee-section {
-            background: linear-gradient(135deg, var(--recruitment-green-dark), #0f945b, var(--recruitment-blue-dark));
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 48%, #0ea5e9 100%);
             color: white;
             padding: 96px 0;
         }
@@ -415,12 +454,16 @@
         }
 
         .recruitment-note-card h3 {
-            color: var(--recruitment-green-dark);
+            color: var(--recruitment-blue-dark);
             font-size: 28px;
         }
 
         .recruitment-note-card p {
             font-size: 17px;
+        }
+
+        .recruitment-note-card .recruitment-note-text {
+            color: #000000;
         }
 
         .recruitment-note-card .recruitment-btn {
@@ -442,7 +485,7 @@
         .recruitment-associated-grid strong {
             display: block;
             font-size: 40px;
-            color: var(--recruitment-green);
+            color: var(--recruitment-blue-dark);
             font-weight: 900;
             margin: 22px 0 14px;
         }
@@ -451,7 +494,7 @@
             margin-top: 96px;
             margin-bottom: 96px;
             border-radius: 32px;
-            background: linear-gradient(135deg, #0f925a, #0c7446 58%, #135f84);
+            background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 72%, #14b8a6 100%);
             color: white;
             padding: 72px;
             display: grid;
@@ -605,8 +648,8 @@
                         <h1>Reclutamiento y Selección de Personal</h1>
                         <p>
                             Encontramos, filtramos y presentamos candidatos calificados para cargos
-                            operacionales, técnicos y profesionales, con una propuesta visual más verde,
-                            más cercana y más alineada a crecimiento.
+                            operacionales, técnicos y profesionales, con una propuesta visual más clara,
+                            moderna y alineada con una identidad azul más confiable.
                         </p>
                         <div class="recruitment-actions">
                             <a class="recruitment-btn recruitment-btn--primary" href="#contacto">Solicitar servicio</a>
@@ -639,7 +682,7 @@
                     <div class="recruitment-section-heading">
                         <span class="recruitment-eyebrow dark">Servicios principales</span>
                         <h2>Planes de reclutamiento por tipo de cargo</h2>
-                        <p>Elegimos una estructura basada en tu referencia, pero reforzando el verde como color principal para destacar crecimiento, selección y confianza.</p>
+                        <p>Elegimos una estructura basada en tu referencia, reforzando una paleta azul clara para transmitir confianza, orden y claridad.</p>
                     </div>
 
                     <div class="recruitment-plan-grid">
@@ -656,12 +699,12 @@
                                 <li>Entrevistas</li>
                                 <li>Entrega de terna</li>
                                 <li>Proceso aproximado: 7 días hábiles</li>
-                                <li>Garantía de reposición por 1 mes</li>
+                                <li class="recruitment-guarantee-item">Garantía de reposición por 1 mes</li>
                             </ul>
                             <a class="recruitment-btn recruitment-btn--secondary" href="#contacto">Solicitar plan</a>
                         </article>
 
-                        <article class="recruitment-plan-card featured">
+                        <article class="recruitment-plan-card recruitment-plan-card--technical featured">
                             <span class="recruitment-featured-label">Más solicitado</span>
                             <h3>Cargos Técnicos</h3>
                             <div class="recruitment-price">7 UF</div>
@@ -675,7 +718,7 @@
                                 <li>Selección de CV ajustados</li>
                                 <li>Entrevistas presenciales o remotas</li>
                                 <li>Proceso aproximado: 10 días hábiles</li>
-                                <li>Garantía de reposición por 1 mes</li>
+                                <li class="recruitment-guarantee-item">Garantía de reposición por 1 mes</li>
                             </ul>
                             <a class="recruitment-btn recruitment-btn--primary" href="#contacto">Solicitar plan</a>
                         </article>
@@ -693,7 +736,7 @@
                                 <li>Entrevistas</li>
                                 <li>Presentación de terna</li>
                                 <li>Proceso aproximado: 10 días hábiles</li>
-                                <li>Garantía de reposición por 1 mes</li>
+                                <li class="recruitment-guarantee-item">Garantía de reposición por 1 mes</li>
                             </ul>
                             <a class="recruitment-btn recruitment-btn--secondary" href="#contacto">Solicitar plan</a>
                         </article>
@@ -727,7 +770,7 @@
                     </div>
                     <article class="recruitment-note-card">
                         <h3>Importante</h3>
-                        <p>La garantía no aplica si el cliente no contacta a los candidatos dentro de 5 días hábiles y al sexto día ya no están disponibles por haber encontrado trabajo.</p>
+                        <p class="recruitment-note-text">La garantía no aplica si el cliente no contacta a los candidatos dentro de 5 días hábiles y al sexto día ya no están disponibles por haber encontrado trabajo.</p>
                         <a class="recruitment-btn recruitment-btn--primary" href="#contacto">Hablar con asesor</a>
                     </article>
                 </div>
