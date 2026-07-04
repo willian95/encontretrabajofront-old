@@ -388,6 +388,10 @@
             width: 100%;
         }
 
+        .recruitment-plan-card--managerial {
+            grid-column: 2;
+        }
+
         .recruitment-steps-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -549,6 +553,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .recruitment-plan-card--managerial {
+                grid-column: auto;
+            }
+
             .recruitment-page h1 {
                 font-size: 56px;
             }
@@ -599,6 +607,10 @@
             .recruitment-associated-grid,
             .recruitment-terms-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .recruitment-plan-card--managerial {
+                grid-column: auto;
             }
 
             .recruitment-page h2,
@@ -741,7 +753,7 @@
                             <a class="recruitment-btn recruitment-btn--secondary" href="#contacto">Solicitar plan</a>
                         </article>
 
-                        <article class="recruitment-plan-card">
+                        <article class="recruitment-plan-card recruitment-plan-card--managerial">
                             <h3>Cargos Gerenciales</h3>
                             <div class="recruitment-price">18 UF</div>
                             <p class="recruitment-per">por candidato seleccionado</p>
