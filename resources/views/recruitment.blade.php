@@ -648,7 +648,7 @@
                         <h1>Reclutamiento y Selección de Personal</h1>
                         <p>
                             Encontramos, filtramos y presentamos candidatos calificados para cargos
-                            operacionales, técnicos y profesionales, con una propuesta visual más clara,
+                            operacionales, técnicos, profesionales y gerenciales, con una propuesta visual más clara,
                             moderna y alineada con una identidad azul más confiable.
                         </p>
                         <div class="recruitment-actions">
@@ -672,7 +672,7 @@
 
             <section class="recruitment-container recruitment-quick-stats">
                 <article><strong>7 a 10 días</strong><span>Proceso aproximado según tipo de cargo</span></article>
-                <article><strong>3 niveles</strong><span>Operacional, técnico y profesional</span></article>
+                <article><strong>4 niveles</strong><span>Operacional, técnico, profesional y gerencial</span></article>
                 <article><strong>1 mes</strong><span>Garantía de reposición</span></article>
                 <article><strong>Cobertura amplia</strong><span>Publicación en portales y redes sociales</span></article>
             </section>
@@ -728,12 +728,30 @@
                             <div class="recruitment-price">10 UF</div>
                             <p class="recruitment-per">por candidato seleccionado</p>
                             <p class="recruitment-range">$900.001 a $1.900.000 líquidos</p>
-                            <p>Para jefaturas, encargados, ingenieros, médicos, enfermeros profesionales y especialistas.</p>
+                            <p>Para encargados, ingenieros, médicos, enfermeros profesionales y especialistas.</p>
                             <ul>
                                 <li>Análisis completo del perfil</li>
                                 <li>Publicación nacional</li>
                                 <li>Filtro especializado</li>
                                 <li>Entrevistas</li>
+                                <li>Presentación de terna</li>
+                                <li>Proceso aproximado: 10 días hábiles</li>
+                                <li class="recruitment-guarantee-item">Garantía de reposición por 1 mes</li>
+                            </ul>
+                            <a class="recruitment-btn recruitment-btn--secondary" href="#contacto">Solicitar plan</a>
+                        </article>
+
+                        <article class="recruitment-plan-card">
+                            <h3>Cargos Gerenciales</h3>
+                            <div class="recruitment-price">18 UF</div>
+                            <p class="recruitment-per">por candidato seleccionado</p>
+                            <p class="recruitment-range">Desde $1.900.000 líquidos hacia arriba</p>
+                            <p>Para gerencias, subgerencias, jefaturas estratégicas, direcciones y cargos de alta responsabilidad.</p>
+                            <ul>
+                                <li>Análisis completo del perfil</li>
+                                <li>Publicación nacional</li>
+                                <li>Filtro especializado</li>
+                                <li>Entrevistas por competencias</li>
                                 <li>Presentación de terna</li>
                                 <li>Proceso aproximado: 10 días hábiles</li>
                                 <li class="recruitment-guarantee-item">Garantía de reposición por 1 mes</li>
