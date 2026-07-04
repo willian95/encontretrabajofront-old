@@ -222,7 +222,7 @@
                                 </div>
                                 <div class="col-12">
                                     <p class="text-center">
-                                        <a :href="'{{ env('PLATFORM_URL') }}'+'/offers/detail/'+slug" class="btn btn-primary">Postular </a>
+                                        <a :href="'https://app.encontretrabajo.cl/offers/detail/'+slug" class="btn btn-primary">Postular </a>
                                     </p>
                                 </div>
                             </div>
