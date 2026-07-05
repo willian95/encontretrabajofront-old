@@ -6,16 +6,18 @@
 
     <div id="search-dev" style="padding-top: 120px;">
     
-        <div class="container">
+        <div class="container-fluid">
 
             <div class="row" v-cloak >   
-                <div class="col-12">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-12">
                     <h3 v-if="jobSearch"><strong>Resultados de: </strong>@{{ jobSearch }}</h3>
-                </div>
+                        </div>
 
-                <div class="col-12" v-if="offers.length == 0">
+                        <div class="col-12" v-if="offers.length == 0">
                     <h3 class="text-center">No hay trabajos para tus criterios de búsqueda</h3>
-                </div>
+                        </div>
 
                 {{--<div class="col-md-4" v-for="offer in offers">
                     <div class="card">
@@ -44,7 +46,7 @@
                     </div>
                 </div>--}}
 
-                <div class="col-lg-8 offset-lg-2 col-md-12" v-for="offer in offers" style="margin-bottom: 1rem; padding-right: 2rem; padding-left: 2rem;">
+                        <div class="col-lg-8 offset-lg-2 col-md-12" v-for="offer in offers" style="margin-bottom: 1rem; padding-right: 2rem; padding-left: 2rem;">
                     <div class="card" data-toggle="modal" data-target="#jobModal" style="cursor: pointer;" @click="show(offer)">
                         <div class="card-body" style="padding: 0.6rem !important">
                             <div class="row">
@@ -74,9 +76,9 @@
 
                         </div>
                     </div>
-                </div>
+                        </div>
 
-                <div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -131,8 +133,13 @@
                         </div>
                         </div>
                     </div>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="col-md-2">
+                    @include('partials.ads-sidebar')
+                </div>
 
             </div>
 

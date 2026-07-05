@@ -144,33 +144,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    @if(App\Ad::where("id", 10)->first())
-                        <a href="{{ App\Ad::where('id', 10)->first()->link }}" target="_blank">
-                        
-                            @if(App\Ad::where('id', 10)->first()->type == 'video')
-                            <video style="width:100% !important" controls>
-                                <source src="{{ App\Ad::where('id', 10)->first()->image }}" type="video/mp4">
-                            </video>
-                            @else
-                            <img style="width:100% !important" src="{{ App\Ad::where('id', 10)->first()->image }}" alt="">
-                            @endif
-                            
-                        </a>
-                    @endif
-                    @if(App\Ad::where("id", 11)->first())
-                        <a href="{{ App\Ad::where('id', 11)->first()->link }}" target="_blank">
-                        
-                            @if(App\Ad::where('id', 11)->first()->type == 'video')
-                            <video style="width:100% !important" controls>
-                                <source src="{{ App\Ad::where('id', 11)->first()->image }}" type="video/mp4">
-                            </video>
-                            @else
-                            <img style="width:100% !important" src="{{ App\Ad::where('id', 11)->first()->image }}" alt="">
-                            @endif
-                            
-                        </a>
-                    @endif
-                    
+                    @include('partials.ads-sidebar')
                 </div>
                 
             </div>

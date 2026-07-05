@@ -5,15 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Offer;
+use App\Ad;
 
 class SearchController extends Controller
 {
     function index(){
-        return view("search");
+        return view("search", [
+            "ads" => $this->getPageAds(),
+        ]);
     }
 
     function jobs(){
-        return view("jobs");
+        return view("jobs", [
+            "ads" => $this->getPageAds(),
+        ]);
+    }
+
+    private function getPageAds(){
+        return Ad::whereIn("id", [8, 9])->get()->keyBy("id");
     }
 
     function search(Request $request){

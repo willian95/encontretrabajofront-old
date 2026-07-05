@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Offer;
+use App\Ad;
 
 class JobController extends Controller
 {
 
     function index(){
-        return view('jobs');
+        return view('jobs', [
+            'ads' => $this->getPageAds(),
+        ]);
     }
     
     function getOffers(Request $request){
@@ -41,6 +44,10 @@ class JobController extends Controller
             return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine(), "msg" => "Hubo un problema"]);
         }
 
+    }
+
+    private function getPageAds(){
+        return Ad::whereIn('id', [8, 9])->get()->keyBy('id');
     }
 
 }
