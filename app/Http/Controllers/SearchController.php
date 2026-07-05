@@ -22,7 +22,7 @@ class SearchController extends Controller
     }
 
     private function getPageAds(){
-        return Ad::whereIn("id", [8, 9])->get()->keyBy("id");
+        return Ad::whereIn("id", [8, 9, 10, 11])->get()->keyBy("id");
     }
 
     function search(Request $request){

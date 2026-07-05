@@ -1,5 +1,5 @@
 @if(isset($ads) && $ads->count())
-    @foreach([8, 9] as $adId)
+    @foreach([8, 9, 10, 11] as $adId)
         @php
             $ad = $ads->get($adId);
         @endphp
