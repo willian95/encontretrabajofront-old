@@ -19,6 +19,24 @@
                     <h3 class="text-center">No hay trabajos para tus criterios de búsqueda</h3>
                         </div>
 
+                        <div class="col-12">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item" v-if="page > 1">
+                                        <a class="page-link" href="#" aria-label="Previous" @click="fetch(page -1)">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li v-for="index in pages" class="page-item" v-if="page == index && index >= page - 3 &&  index < page + 3"><a class="page-link" href="#" @click="fetch(index)">@{{ index }}</a></li>
+                                    <li class="page-item" v-if="page < pages">
+                                        <a class="page-link" href="#" aria-label="Next" @click="fetch(page + 3)">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
                 {{--<div class="col-md-4" v-for="offer in offers">
                     <div class="card">
                         <div class="card-body">

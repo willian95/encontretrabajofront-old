@@ -86,6 +86,26 @@
                         </p>
                     </div>
 
+                    <div class="row" v-cloak>
+                        <div class="col-12">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item" v-if="page > 1">
+                                        <a class="page-link" href="#" aria-label="Previous" @click="query(page -1)">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li v-for="index in pages" class="page-item" v-if="page == index && index >= page - 3 &&  index < page + 3"><a class="page-link" href="#" @click="query(index)">@{{ index }}</a></li>
+                                    <li class="page-item" v-if="page < pages">
+                                        <a class="page-link" href="#" aria-label="Next" @click="query(page + 3)">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
                     <div class="col-12" v-for="offer in offers" style="margin-bottom: 1rem; padding-right: 2rem; padding-left: 2rem;">
                         <div class="card" data-toggle="modal" data-target="#jobModal" style="cursor: pointer;" @click="show(offer)">
                             <div class="card-body" style="padding: 0.6rem !important">
