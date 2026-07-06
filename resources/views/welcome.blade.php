@@ -98,29 +98,27 @@
                     </div>
 
                     <div class="welcome-modern__job-list">
-                        <div class="welcome-modern__job">
-                            <div>
-                                <small>Informática · Santiago</small>
-                                <h3>Desarrollador Frontend</h3>
+                        @forelse($featuredOffers as $offer)
+                            <div class="welcome-modern__job">
+                                <div>
+                                    <small>
+                                        {{ optional($offer->category)->name ?: 'Oferta laboral' }}
+                                        ·
+                                        {{ optional($offer->region)->name ?: 'Chile' }}
+                                    </small>
+                                    <h3>{{ $offer->title }}</h3>
+                                </div>
+                                <a class="welcome-modern__btn" href="{{ env('PLATFORM_URL').'/offers/detail/'.$offer->slug }}">Ver oferta</a>
                             </div>
-                            <a class="welcome-modern__btn" href="{{ url('/jobs') }}">Ver oferta</a>
-                        </div>
-
-                        <div class="welcome-modern__job">
-                            <div>
-                                <small>Ventas · Valparaíso</small>
-                                <h3>Ejecutivo Comercial</h3>
+                        @empty
+                            <div class="welcome-modern__job">
+                                <div>
+                                    <small>Ofertas destacadas</small>
+                                    <h3>Pronto mostraremos nuevas oportunidades aquí.</h3>
+                                </div>
+                                <a class="welcome-modern__btn" href="{{ url('/jobs') }}">Ver empleos</a>
                             </div>
-                            <a class="welcome-modern__btn" href="{{ url('/jobs') }}">Ver oferta</a>
-                        </div>
-
-                        <div class="welcome-modern__job">
-                            <div>
-                                <small>Recursos Humanos · Remoto</small>
-                                <h3>Analista de Reclutamiento</h3>
-                            </div>
-                            <a class="welcome-modern__btn" href="{{ url('/jobs') }}">Ver oferta</a>
-                        </div>
+                        @endforelse
                     </div>
                 </div>
             </section>

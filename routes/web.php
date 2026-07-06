@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
+use App\Offer;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $featuredOffers = Offer::with(['region', 'category'])
+        ->has('user')
+        ->where('status', 'abierto')
+        ->where('is_highlighted', 1)
+        ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
+        ->orderBy('id', 'desc')
+        ->take(3)
+        ->get();
+
+    return view('welcome', [
+        'featuredOffers' => $featuredOffers,
+    ]);
 });
 
 Route::get('/recruitment', function () {
