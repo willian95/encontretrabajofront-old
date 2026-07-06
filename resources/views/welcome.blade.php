@@ -108,7 +108,7 @@
                                     </small>
                                     <h3>{{ $offer->title }}</h3>
                                 </div>
-                                <a class="welcome-modern__btn" href="{{ env('PLATFORM_URL').'/offers/detail/'.$offer->slug }}">Ver oferta</a>
+                                <a class="welcome-modern__btn" href="{{ 'https://app.encontretrabajo.cl/offers/detail/'.$offer->slug }}">Ver oferta</a>
                             </div>
                         @empty
                             <div class="welcome-modern__job">
