@@ -131,38 +131,45 @@
                     </div>
 
                     <div class="welcome-modern__plans">
-                        <div class="welcome-modern__plan">
+                        <article class="welcome-modern__plan">
                             <h3>Gratis</h3>
                             <div class="welcome-modern__price">$0</div>
+                            <p class="welcome-modern__plan-meta">por publicación</p>
+                            <p class="welcome-modern__plan-copy">Ideal para empezar a publicar vacantes y probar la plataforma.</p>
                             <ul>
                                 <li>1 publicación simple</li>
                                 <li>Duración 30 días</li>
                                 <li>Visibilidad básica</li>
                             </ul>
                             <a class="welcome-modern__btn welcome-modern__btn--secondary" href="{{ env('PLATFORM_URL').'/register' }}">Comenzar</a>
-                        </div>
+                        </article>
 
-                        <div class="welcome-modern__plan welcome-modern__plan--featured">
+                        <article class="welcome-modern__plan welcome-modern__plan--featured">
+                            <span class="welcome-modern__plan-badge">Más solicitado</span>
                             <h3>Destacado</h3>
                             <div class="welcome-modern__price">$19.990</div>
+                            <p class="welcome-modern__plan-meta">por publicación</p>
+                            <p class="welcome-modern__plan-copy">Pensado para empresas que necesitan mayor alcance y más postulaciones calificadas.</p>
                             <ul>
                                 <li>Publicaciones destacadas</li>
                                 <li>Mayor visibilidad</li>
                                 <li>Acceso a candidatos</li>
                             </ul>
                             <a class="welcome-modern__btn" href="{{ env('PLATFORM_URL').'/offers/create' }}">Elegir plan</a>
-                        </div>
+                        </article>
 
-                        <div class="welcome-modern__plan">
+                        <article class="welcome-modern__plan">
                             <h3>Empresa</h3>
                             <div class="welcome-modern__price">$59.990</div>
+                            <p class="welcome-modern__plan-meta">por mes</p>
+                            <p class="welcome-modern__plan-copy">Para equipos de selección que requieren volumen, soporte y herramientas extra.</p>
                             <ul>
                                 <li>Publicaciones múltiples</li>
                                 <li>Búsqueda de perfiles</li>
                                 <li>Soporte prioritario</li>
                             </ul>
                             <a class="welcome-modern__btn welcome-modern__btn--secondary" href="{{ url('/recruitment') }}">Contactar</a>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </section>
