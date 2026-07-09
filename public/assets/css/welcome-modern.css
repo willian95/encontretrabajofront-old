@@ -296,13 +296,14 @@
 .welcome-modern__plans {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
+    gap: 22px;
 }
 
 .welcome-modern__plan {
     position: relative;
     background: white;
-    padding: 34px;
+    min-width: 0;
+    padding: 28px;
     border-radius: 24px;
     border: 1px solid #dbeafe;
     box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
@@ -331,7 +332,7 @@
 }
 
 .welcome-modern__price {
-    font-size: 52px;
+    font-size: 44px;
     line-height: 1;
     font-weight: 900;
     color: var(--welcome-blue-dark);
@@ -340,7 +341,7 @@
 }
 
 .welcome-modern__plan:not(.welcome-modern__plan--featured) .welcome-modern__price {
-    font-size: 44px;
+    font-size: 38px;
 }
 
 .welcome-modern__plan-meta {
@@ -351,10 +352,10 @@
 }
 
 .welcome-modern__plan-copy {
-    margin: 24px 0 0;
+    margin: 20px 0 0;
     color: var(--welcome-gray);
     line-height: 1.55;
-    min-height: 72px;
+    min-height: 96px;
 }
 
 .welcome-modern__plan ul {
@@ -419,7 +420,7 @@
     text-align: center;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1024px) {
     .welcome-modern__plans {
         grid-template-columns: repeat(2, 1fr);
     }

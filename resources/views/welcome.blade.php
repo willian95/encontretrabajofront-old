@@ -173,8 +173,8 @@
 
                         <article class="welcome-modern__plan">
                             <h3>Corporativo</h3>
-                            <div class="welcome-modern__price">A medida</div>
-                            <p class="welcome-modern__plan-meta">solución personalizada</p>
+                            <div class="welcome-modern__price">$260.000</div>
+                            <p class="welcome-modern__plan-meta">por mes</p>
                             <p class="welcome-modern__plan-copy">Para empresas con procesos de selección continuos, múltiples vacantes o apoyo especializado.</p>
                             <ul>
                                 <li>Planes personalizados</li>
