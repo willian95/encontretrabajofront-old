@@ -170,6 +170,19 @@
                             </ul>
                             <a class="welcome-modern__btn welcome-modern__btn--secondary" href="{{ url('/recruitment') }}">Contactar</a>
                         </article>
+
+                        <article class="welcome-modern__plan">
+                            <h3>Corporativo</h3>
+                            <div class="welcome-modern__price">A medida</div>
+                            <p class="welcome-modern__plan-meta">solución personalizada</p>
+                            <p class="welcome-modern__plan-copy">Para empresas con procesos de selección continuos, múltiples vacantes o apoyo especializado.</p>
+                            <ul>
+                                <li>Planes personalizados</li>
+                                <li>Asesoría comercial</li>
+                                <li>Gestión de alto volumen</li>
+                            </ul>
+                            <a class="welcome-modern__btn welcome-modern__btn--secondary" href="{{ url('/recruitment') }}">Solicitar plan</a>
+                        </article>
                     </div>
                 </div>
             </section>
