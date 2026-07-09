@@ -134,14 +134,12 @@
                         <article class="welcome-modern__plan">
                             <h3>Gratis</h3>
                             <div class="welcome-modern__price">$0</div>
-                            <p class="welcome-modern__plan-meta">por publicación</p>
                             <p class="welcome-modern__plan-copy">Ideal para empezar a publicar vacantes y probar la plataforma.</p>
                             <ul>
-                                <li>1 publicación simple</li>
-                                <li>Duración 30 días</li>
+                                <li>Duración 90 días</li>
                                 <li>Visibilidad básica</li>
                             </ul>
-                            <a class="welcome-modern__btn welcome-modern__btn--secondary" href="{{ env('PLATFORM_URL').'/register' }}">Comenzar</a>
+                            <a class="welcome-modern__btn welcome-modern__btn--secondary" href="https://app.encontretrabajo.cl/plans/available">Comenzar</a>
                         </article>
 
                         <article class="welcome-modern__plan welcome-modern__plan--featured">
@@ -151,37 +149,35 @@
                             <p class="welcome-modern__plan-meta">por publicación</p>
                             <p class="welcome-modern__plan-copy">Pensado para empresas que necesitan mayor alcance y más postulaciones calificadas.</p>
                             <ul>
-                                <li>Publicaciones destacadas</li>
+                                <li>Duración 90 días</li>
                                 <li>Mayor visibilidad</li>
-                                <li>Acceso a candidatos</li>
                             </ul>
-                            <a class="welcome-modern__btn" href="{{ env('PLATFORM_URL').'/offers/create' }}">Elegir plan</a>
+                            <a class="welcome-modern__btn" href="https://app.encontretrabajo.cl/plans/available">Elegir plan</a>
                         </article>
 
                         <article class="welcome-modern__plan">
-                            <h3>Empresa</h3>
+                            <h3>Emprendedor</h3>
                             <div class="welcome-modern__price">$59.990</div>
                             <p class="welcome-modern__plan-meta">por mes</p>
                             <p class="welcome-modern__plan-copy">Para equipos de selección que requieren volumen, soporte y herramientas extra.</p>
                             <ul>
                                 <li>Publicaciones múltiples</li>
                                 <li>Búsqueda de perfiles</li>
-                                <li>Soporte prioritario</li>
+                                <li>Duración 90 días</li>
                             </ul>
-                            <a class="welcome-modern__btn welcome-modern__btn--secondary" href="{{ url('/recruitment') }}">Contactar</a>
+                            <a class="welcome-modern__btn welcome-modern__btn--secondary" href="https://app.encontretrabajo.cl/plans/available">Contactar</a>
                         </article>
 
                         <article class="welcome-modern__plan">
-                            <h3>Corporativo</h3>
+                            <h3>Empresa</h3>
                             <div class="welcome-modern__price">$260.000</div>
-                            <p class="welcome-modern__plan-meta">por mes</p>
+                            <p class="welcome-modern__plan-meta">por año</p>
                             <p class="welcome-modern__plan-copy">Para empresas con procesos de selección continuos, múltiples vacantes o apoyo especializado.</p>
                             <ul>
-                                <li>Planes personalizados</li>
-                                <li>Asesoría comercial</li>
-                                <li>Gestión de alto volumen</li>
+                                <li>Avisos destacados ilimitados</li>
+                                <li>Duración 90 días</li>
                             </ul>
-                            <a class="welcome-modern__btn welcome-modern__btn--secondary" href="{{ url('/recruitment') }}">Solicitar plan</a>
+                            <a class="welcome-modern__btn welcome-modern__btn--secondary" href="https://app.encontretrabajo.cl/plans/available">Solicitar plan</a>
                         </article>
                     </div>
                 </div>
