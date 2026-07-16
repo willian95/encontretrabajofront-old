@@ -145,7 +145,7 @@
                         <article class="welcome-modern__plan welcome-modern__plan--featured">
                             <span class="welcome-modern__plan-badge">Más solicitado</span>
                             <h3>Destacado</h3>
-                            <div class="welcome-modern__price">$19.990</div>
+                            <div class="welcome-modern__price">$9.990</div>
                             <p class="welcome-modern__plan-meta">por publicación</p>
                             <p class="welcome-modern__plan-copy">Pensado para empresas que necesitan mayor alcance y más postulaciones calificadas.</p>
                             <ul>
@@ -157,7 +157,7 @@
 
                         <article class="welcome-modern__plan">
                             <h3>Emprendedor</h3>
-                            <div class="welcome-modern__price">$59.990</div>
+                            <div class="welcome-modern__price">$19.990</div>
                             <p class="welcome-modern__plan-meta">por mes</p>
                             <p class="welcome-modern__plan-copy">Para equipos de selección que requieren volumen, soporte y herramientas extra.</p>
                             <ul>
