@@ -162,7 +162,7 @@
                             <p class="welcome-modern__plan-copy">Para equipos de selección que requieren volumen, soporte y herramientas extra.</p>
                             <ul>
                                 <li>Publicaciones múltiples</li>
-                                <li>7 avisos destacados</li>
+                                <li>10 avisos destacados</li>
                                 <li>Duración 90 días</li>
                             </ul>
                             <a class="welcome-modern__btn welcome-modern__btn--secondary" href="https://app.encontretrabajo.cl/plans/available">Contactar</a>
