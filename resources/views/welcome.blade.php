@@ -157,7 +157,7 @@
 
                         <article class="welcome-modern__plan">
                             <h3>Emprendedor</h3>
-                            <div class="welcome-modern__price">$19.990</div>
+                            <div class="welcome-modern__price">$59.990</div>
                             <p class="welcome-modern__plan-meta">por mes</p>
                             <p class="welcome-modern__plan-copy">Para equipos de selección que requieren volumen, soporte y herramientas extra.</p>
                             <ul>
