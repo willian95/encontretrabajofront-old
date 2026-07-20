@@ -10,6 +10,10 @@ class Offer extends Model
     use SoftDeletes;
     protected $table = "offers";
 
+    public function viewers(){
+        return $this->hasMany(OfferViewer::class);
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

@@ -58,7 +58,7 @@ class SearchController extends Controller
 
             $words = array_values(array_diff($words,$wordsToDelete));
 
-            $offers = Offer::with("user")->with("region", "commune", "category")->has("user")
+            $offers = Offer::with("user")->with("region", "commune", "category")->withCount("viewers")->has("user")
             ->where(function ($query) use($words, $request) {
                 for ($i = 0; $i < count($words); $i++){
                     if($words[$i] != ""){
@@ -136,7 +136,7 @@ class SearchController extends Controller
             $dataAmount = 18;
             $skip = ($request->page - 1) * $dataAmount;
 
-            $offers = Offer::with("user", "commune", "region", "category")->has("user")
+            $offers = Offer::with("user", "commune", "region", "category")->withCount("viewers")->has("user")
             ->where("commune_id", $request->communeSearch)
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
@@ -171,7 +171,7 @@ class SearchController extends Controller
             $dataAmount = 18;
             $skip = ($request->page - 1) * $dataAmount;
 
-            $offers = Offer::with("user", "commune", "region", "category")->has("user")
+            $offers = Offer::with("user", "commune", "region", "category")->withCount("viewers")->has("user")
             ->where("status", "abierto")
             ->where("category_id", $request->categorySearch)
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())

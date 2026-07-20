@@ -130,6 +130,7 @@
                                             <strong>Aviso destacado</strong>
                                         </p>
 
+                                        <small>@{{ offer.viewers_count || 0 }} visualizaciones</small>
                                         <small style="float:right">@{{ dateFormatter(offer.created_at) }}</small>
                                         
                                     </div>

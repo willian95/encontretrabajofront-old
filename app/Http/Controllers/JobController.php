@@ -23,7 +23,7 @@ class JobController extends Controller
             $dataAmount = 18;
             $skip = ($request->page - 1) * $dataAmount;
 
-            $offers = Offer::with("user")->has("user")
+            $offers = Offer::with("user")->withCount("viewers")->has("user")
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
             ->take($dataAmount)
