@@ -256,10 +256,7 @@
                     let month = date.substring(5, 7)
                     let day = date.substring(8, 10)
 
-                    let hour = date.substring(11, 13)
-                    let minute = date.substring(14, 16)
-
-                    return day+"-"+month+"-"+year+" "+hour+":"+minute
+                    return day+"-"+month+"-"+year
                 }
 
             },
