@@ -267,7 +267,7 @@
             },
             methods: {
 
-                show(offer){
+                async show(offer){
               
                     this.image = offer.user.image
                     this.title = offer.title
@@ -278,6 +278,16 @@
                     this.jobPosition = offer.job_position
                     this.extraWage = offer.extra_wage
                     this.slug = offer.slug
+
+                    try {
+                        const response = await axios.post("{{ url('/jobs') }}/" + offer.id + "/view")
+
+                        if (response.data.success) {
+                            offer.viewers_count = response.data.viewersCount
+                        }
+                    } catch (error) {
+                        // La oferta sigue siendo visible aunque no se pueda registrar la visualización.
+                    }
                 },
                 fetchRegions(){
 

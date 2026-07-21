@@ -43,6 +43,7 @@ Route::post("/search/category", "SearchController@categorySearch");
 
 Route::get("/jobs", "JobController@index");
 Route::post("/jobs", "JobController@getOffers");
+Route::post("/jobs/{offer}/view", "JobController@registerView");
 
 Route::get("/regions/all", "RegionController@fetch");
 

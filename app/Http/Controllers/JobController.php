@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Offer;
 use App\Ad;
+use App\OfferViewer;
 
 class JobController extends Controller
 {
@@ -42,6 +43,27 @@ class JobController extends Controller
         }catch(\Exception $e){
 
             return response()->json(["success" => false, "err" => $e->getMessage(), "ln" => $e->getLine(), "msg" => "Hubo un problema"]);
+        }
+
+    }
+
+    function registerView(Offer $offer){
+
+        try {
+            OfferViewer::create([
+                'offer_id' => $offer->id,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'viewersCount' => $offer->viewers()->count(),
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'msg' => 'No fue posible registrar la visualización',
+            ], 500);
         }
 
     }
