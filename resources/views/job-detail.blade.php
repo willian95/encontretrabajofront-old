@@ -1,5 +1,22 @@
 @extends('layouts.main')
 
+@php
+    $shareDescription = preg_replace('/\s+/', ' ', strip_tags((string) $offer->description));
+    $shareDescription = mb_substr(trim($shareDescription), 0, 160);
+    $shareImage = optional($offer->user)->image ?: asset('assets/img/logo-color.png');
+@endphp
+
+@push('meta')
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:site_name" content="Encontré Trabajo">
+    <meta property="og:title" content="{{ $offer->title }} | Encontré Trabajo">
+    <meta property="og:description" content="{{ $shareDescription }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ $shareImage }}">
+    <meta property="og:image:alt" content="{{ $offer->title }}">
+@endpush
+
 @push('css')
     <style>
         .job-detail { padding: 120px 0 50px; background: #f6f8fb; min-height: 100vh; }
@@ -16,8 +33,8 @@
 
     <main class="job-detail">
         <div class="container">
-            <div class="row">
-                <section class="col-md-9 mb-4">
+            <div class="row justify-content-center">
+                <section class="col-lg-10 col-xl-11 mb-4">
                     <article class="card job-detail__card">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-4">
@@ -49,7 +66,7 @@
                     </article>
                 </section>
 
-                <aside class="col-md-3">
+                <aside class="col-lg-10 col-xl-11">
                     @include('partials.ads-sidebar')
                 </aside>
             </div>

@@ -16,6 +16,8 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/shared-navbar.css') }}" rel="stylesheet" />
 
+    @stack('meta')
+
     <style>
         .elipse{
             background:#1675a9;
