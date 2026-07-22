@@ -65,7 +65,8 @@
                 </div>--}}
 
                         <div class="col-lg-8 offset-lg-2 col-md-12" v-for="offer in offers" style="margin-bottom: 1rem; padding-right: 2rem; padding-left: 2rem;">
-                    <div class="card" data-toggle="modal" data-target="#jobModal" style="cursor: pointer;" @click="show(offer)">
+                    <a :href="'{{ url('/jobs') }}/' + offer.slug" style="color: inherit; text-decoration: none; display: block;">
+                    <div class="card" style="cursor: pointer;">
                         <div class="card-body" style="padding: 0.6rem !important">
                             <div class="row">
                                 <div class="col-3">
@@ -95,6 +96,7 @@
 
                         </div>
                     </div>
+                    </a>
                         </div>
 
                         <div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

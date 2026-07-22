@@ -107,7 +107,8 @@
                     </div>
 
                     <div class="col-12" v-for="offer in offers" style="margin-bottom: 1rem; padding-right: 2rem; padding-left: 2rem;">
-                        <div class="card" data-toggle="modal" data-target="#jobModal" style="cursor: pointer;" @click="show(offer)">
+                        <a :href="'{{ url('/jobs') }}/' + offer.slug" style="color: inherit; text-decoration: none; display: block;">
+                        <div class="card" style="cursor: pointer;">
                             <div class="card-body" style="padding: 0.6rem !important">
                                 <div class="row">
                                     <div class="col-3">
@@ -140,6 +141,7 @@
 
                             </div>
                         </div>
+                        </a>
                     </div>
 
                     <div class="row" v-cloak>
@@ -170,63 +172,6 @@
                 
             </div>
 
-            <div class="modal fade" id="jobModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p class="text-center">
-                                        <img :src="image" alt="" style="width: 120px">
-                                    </p>
-                                </div>
-                                <div class="col-12">
-                                    <p class="price-op" v-if="wageType == 1">
-                                        $ @{{ parseInt(minWage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} @{{ extraWage }}
-                                    </p>
-                                    <p class="price-op" v-else>
-                                        A convenir
-                                    </p>
-                                </div>
-                                <div class="col-12">
-                                    <p>
-                                        <strong>Titulo: </strong> @{{ title }}
-                                    </p>
-                                </div>
-                                <div class="col-12">
-                                    <p>
-                                        <strong>Categoría: </strong> @{{ category }}
-                                    </p>
-                                </div>
-                                <div class="col-12">
-                                    <p>
-                                        <strong>Puesto: </strong> @{{ jobPosition }}
-                                    </p>
-                                </div>
-                                <div class="col-12">
-                                    <p>
-                                        <strong>Descripción: </strong> 
-                                    </p>
-                                    <div v-html="description" id="description"> </div>
-                                </div>
-                                <div class="col-12">
-                                    <p class="text-center">
-                                        <a :href="'https://app.encontretrabajo.cl/offers/detail/'+slug" class="btn btn-primary">Postular </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
     </div>
@@ -249,17 +194,6 @@
                     business:"",
                     page:1,
                     pages:0,
-                    image:"",
-                    title:"",
-                    slug:"",
-                    wageType:"0",
-                    description:"",
-                    category:"",
-                    minWage:"",
-                    extraWage:"",
-                    maxWage:"",
-                    jobPosition:"",
-                    slug:"",
                     categorySearch:"",
                     loading:false
 
@@ -267,28 +201,6 @@
             },
             methods: {
 
-                async show(offer){
-              
-                    this.image = offer.user.image
-                    this.title = offer.title
-                    this.category = offer.category.name
-                    this.description = offer.description
-                    this.minWage = offer.min_wage
-                    this.wageType = offer.wage_type
-                    this.jobPosition = offer.job_position
-                    this.extraWage = offer.extra_wage
-                    this.slug = offer.slug
-
-                    try {
-                        const response = await axios.post("{{ url('/jobs') }}/" + offer.id + "/view")
-
-                        if (response.data.success) {
-                            offer.viewers_count = response.data.viewersCount
-                        }
-                    } catch (error) {
-                        // La oferta sigue siendo visible aunque no se pueda registrar la visualización.
-                    }
-                },
                 fetchRegions(){
 
                     axios.get("{{ url('/regions/all') }}").then(res => {

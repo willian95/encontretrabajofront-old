@@ -16,6 +16,28 @@ class JobController extends Controller
             'ads' => $this->getPageAds(),
         ]);
     }
+
+    function show($slug){
+        $offer = Offer::with(['user', 'region', 'commune', 'category'])
+            ->has('user')
+            ->where('slug', $slug)
+            ->where('status', 'abierto')
+            ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
+            ->firstOrFail();
+
+        try {
+            OfferViewer::create([
+                'offer_id' => $offer->id,
+            ]);
+        } catch (\Exception $e) {
+            // El detalle sigue disponible aunque falle el contador de visualizaciones.
+        }
+
+        return view('job-detail', [
+            'offer' => $offer,
+            'ads' => $this->getPageAds(),
+        ]);
+    }
     
     function getOffers(Request $request){
 

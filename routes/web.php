@@ -42,6 +42,7 @@ Route::post("/search/commune", "SearchController@communeSearch");
 Route::post("/search/category", "SearchController@categorySearch");
 
 Route::get("/jobs", "JobController@index");
+Route::get("/jobs/{slug}", "JobController@show");
 Route::post("/jobs", "JobController@getOffers");
 Route::post("/jobs/{offer}/view", "JobController@registerView");
 
