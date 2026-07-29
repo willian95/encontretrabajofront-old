@@ -119,7 +119,7 @@
                                     <div class="col-9">
                                         <h5 class="card-title" style="text-transform: capitalize;">@{{ offer.title.toLowerCase() }}</h5>
                                         <small class="text-b" style="text-transform: capitalize;">@{{ offer.job_position.toLowerCase() }}</small><br>
-                                        <small class="text-b">@{{ offer.region.name }}, @{{ offer.commune.name }}<span v-if="offer.address">, @{{ offer.address }}</span></small>
+                                        <small class="text-b">@{{ location(offer) }}<span v-if="offer.address">, @{{ offer.address }}</span></small>
                                         
                                         <p class="price-op" v-if="offer.wage_type == 1">
                                             $ @{{ parseInt(offer.min_wage).toString().replace(/\B(?=(\d{3})+\b)/g, ".") }} @{{ offer.extra_wage }}
@@ -239,6 +239,20 @@
                     let day = date.substring(8, 10)
 
                     return day+"-"+month+"-"+year
+                },
+                location(offer){
+
+                    const location = []
+
+                    if (offer.region && offer.region.name) {
+                        location.push(offer.region.name)
+                    }
+
+                    if (offer.commune && offer.commune.name) {
+                        location.push(offer.commune.name)
+                    }
+
+                    return location.length ? location.join(", ") : "Ubicación no especificada"
                 }
 
             },
