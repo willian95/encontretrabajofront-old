@@ -15,11 +15,6 @@ class OfferController extends Controller
 {
     public function create()
     {
-        if (!Auth::check()) {
-            return redirect()->route('google.redirect')
-                ->with('status', 'Inicia sesión para publicar una oferta.');
-        }
-
         return view('offers.create', [
             'categories' => JobCategory::orderBy('name')->get(),
             'regions' => Region::orderBy('name')->get(),
