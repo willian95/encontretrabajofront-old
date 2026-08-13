@@ -6,9 +6,11 @@ use App\Commune;
 use App\JobCategory;
 use App\Offer;
 use App\Region;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class OfferController extends Controller
@@ -24,12 +26,12 @@ class OfferController extends Controller
 
     public function store(Request $request)
     {
-        if (!Auth::check()) {
-            return redirect()->route('google.redirect')
-                ->with('status', 'Inicia sesión para publicar una oferta.');
-        }
-
         $data = $request->validate([
+            'account_mode' => ['required', 'in:login,register'],
+            'email' => ['required', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8'],
+            'company_name' => ['nullable', 'required_if:account_mode,register', 'string', 'max:255'],
+            'password_confirmation' => ['nullable', 'required_if:account_mode,register', 'same:password'],
             'title' => ['required', 'string', 'max:150'],
             'job_position' => ['required', 'string', 'max:150'],
             'description' => ['required', 'string', 'max:5000'],
@@ -52,7 +54,32 @@ class OfferController extends Controller
             return back()->withErrors(['min_wage' => 'Indica la renta ofrecida.'])->withInput();
         }
 
-        $data['user_id'] = Auth::id();
+        if ($data['account_mode'] === 'login') {
+            if (!Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+                return back()->withErrors(['email' => 'El correo o la contraseña no son válidos.'])->withInput();
+            }
+
+            $request->session()->regenerate();
+            $user = Auth::user();
+        } else {
+            if (User::where('email', $data['email'])->exists()) {
+                return back()->withErrors(['email' => 'Ya existe una cuenta con este correo.'])->withInput();
+            }
+
+            $user = User::create([
+                'name' => $data['company_name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'role_id' => 3,
+            ]);
+
+            Auth::login($user);
+            $request->session()->regenerate();
+        }
+
+        unset($data['account_mode'], $data['email'], $data['password'], $data['password_confirmation'], $data['company_name']);
+
+        $data['user_id'] = $user->id;
         $data['status'] = 'abierto';
         $data['min_wage'] = (int) $data['wage_type'] === 1 ? $data['min_wage'] : null;
         $data['max_wage'] = null;
