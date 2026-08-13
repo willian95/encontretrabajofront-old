@@ -30,6 +30,16 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/auth/google', 'GoogleAuthController@redirect')
+    ->middleware('guest')
+    ->name('google.redirect');
+Route::get('/auth/google/callback', 'GoogleAuthController@callback')
+    ->middleware('guest')
+    ->name('google.callback');
+
+Route::get('/offers/create', 'OfferController@create')->name('offers.create');
+Route::post('/offers', 'OfferController@store')->name('offers.store');
+
 Route::get('/recruitment', function () {
     return view('recruitment');
 });

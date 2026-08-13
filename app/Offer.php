@@ -10,6 +10,24 @@ class Offer extends Model
     use SoftDeletes;
     protected $table = "offers";
 
+    protected $fillable = [
+        'user_id',
+        'title',
+        'job_position',
+        'description',
+        'category_id',
+        'region_id',
+        'commune_id',
+        'address',
+        'wage_type',
+        'min_wage',
+        'max_wage',
+        'extra_wage',
+        'status',
+        'expiration_date',
+        'slug',
+    ];
+
     public function viewers(){
         return $this->hasMany(OfferViewer::class);
     }
