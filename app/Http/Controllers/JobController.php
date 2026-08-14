@@ -44,20 +44,20 @@ class JobController extends Controller
         try{
 
             $dataAmount = 18;
-            $skip = ($request->page - 1) * $dataAmount;
+            $page = max(1, (int) $request->input('page', 1));
+            $skip = ($page - 1) * $dataAmount;
 
             $offers = Offer::with("user")->withCount("viewers")->has("user")
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
-            ->take($dataAmount)
             ->orderBy("id", "desc")
+            ->skip($skip)
+            ->take($dataAmount)
             ->get();
 
             $offersCount = Offer::with("user")->has("user")
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
-            ->take($dataAmount)
-            ->orderBy("id", "desc")
             ->count();
 
             return response()->json(["success" => true, "offers" => $offers, "offersCount" => $offersCount, "dataAmount" => $dataAmount]);

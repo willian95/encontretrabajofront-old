@@ -91,13 +91,13 @@
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item" v-if="page > 1">
-                                        <a class="page-link" href="#" aria-label="Previous" @click="query(page -1)">
+                                        <a class="page-link" href="#" aria-label="Previous" @click.prevent="query(page - 1)">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
-                                    <li v-for="index in pages" class="page-item" v-if="page == index && index >= page - 3 &&  index < page + 3"><a class="page-link" href="#" @click="query(index)">@{{ index }}</a></li>
+                                    <li v-for="index in visiblePages" :key="'top-' + index" class="page-item" :class="{ active: page == index }"><a class="page-link" href="#" @click.prevent="query(index)">@{{ index }}</a></li>
                                     <li class="page-item" v-if="page < pages">
-                                        <a class="page-link" href="#" aria-label="Next" @click="query(page + 3)">
+                                        <a class="page-link" href="#" aria-label="Next" @click.prevent="query(page + 1)">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
                                     </li>
@@ -149,13 +149,13 @@
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                     <li class="page-item" v-if="page > 1">
-                                        <a class="page-link" href="#" aria-label="Previous" @click="query(page -1)">
+                                        <a class="page-link" href="#" aria-label="Previous" @click.prevent="query(page - 1)">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
-                                    <li v-for="index in pages" class="page-item" v-if="page == index && index >= page - 3 &&  index < page + 3"><a class="page-link" href="#" @click="query(index)">@{{ index }}</a></li>
+                                    <li v-for="index in visiblePages" :key="'bottom-' + index" class="page-item" :class="{ active: page == index }"><a class="page-link" href="#" @click.prevent="query(index)">@{{ index }}</a></li>
                                     <li class="page-item" v-if="page < pages">
-                                        <a class="page-link" href="#" aria-label="Next" @click="query(page + 3)">
+                                        <a class="page-link" href="#" aria-label="Next" @click.prevent="query(page + 1)">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>    
                                     </li>
@@ -255,6 +255,19 @@
                     return location.length ? location.join(", ") : "Ubicación no especificada"
                 }
 
+            },
+            computed: {
+                visiblePages(){
+                    const start = Math.max(1, this.page - 2)
+                    const end = Math.min(this.pages, this.page + 2)
+                    const pages = []
+
+                    for (let index = start; index <= end; index++) {
+                        pages.push(index)
+                    }
+
+                    return pages
+                }
             },
             created(){
                 
