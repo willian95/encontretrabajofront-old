@@ -39,6 +39,9 @@ Route::get('/auth/google/callback', 'GoogleAuthController@callback')
 
 Route::get('/offers/create', 'OfferController@create')->name('offers.create');
 Route::post('/offers', 'OfferController@store')->name('offers.store');
+Route::get('/offers/captcha', 'OfferController@captcha')->name('offers.captcha');
+Route::get('/offers/verify-email', 'OfferController@showEmailVerification')->name('offers.verify-email');
+Route::post('/offers/verify-email', 'OfferController@verifyEmail')->name('offers.verify-email.confirm');
 
 Route::get('/recruitment', function () {
     return view('recruitment');
