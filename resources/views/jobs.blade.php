@@ -132,6 +132,7 @@
                                         </p>
 
                                         <small>@{{ offer.viewers_count || 0 }} visualizaciones</small>
+                                        <small class="ml-2">@{{ offer.proposals_count || 0 }} postulantes</small>
                                         <small style="float:right">@{{ dateFormatter(offer.created_at) }}</small>
                                         
                                     </div>

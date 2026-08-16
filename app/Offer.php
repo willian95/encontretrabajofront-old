@@ -32,6 +32,10 @@ class Offer extends Model
         return $this->hasMany(OfferViewer::class);
     }
 
+    public function proposals(){
+        return $this->hasMany(Proposal::class);
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }
