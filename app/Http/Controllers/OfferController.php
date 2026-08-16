@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Throwable;
@@ -35,7 +34,6 @@ class OfferController extends Controller
             'password' => ['required', 'string', 'min:8'],
             'company_name' => ['nullable', 'required_if:account_mode,register', 'string', 'max:255'],
             'password_confirmation' => ['nullable', 'required_if:account_mode,register', 'same:password'],
-            'g-recaptcha-response' => ['required', 'string'],
             'title' => ['required', 'string', 'max:150'],
             'job_position' => ['required', 'string', 'max:150'],
             'description' => ['required', 'string', 'max:5000'],
@@ -47,12 +45,6 @@ class OfferController extends Controller
             'min_wage' => ['nullable', 'numeric', 'min:0'],
             'extra_wage' => ['nullable', 'string', 'max:100'],
         ]);
-
-        if (! $this->recaptchaIsValid($request)) {
-            return back()->withErrors([
-                'g-recaptcha-response' => 'No fue posible verificar reCAPTCHA. Inténtalo nuevamente.',
-            ])->withInput();
-        }
 
         if ($data['commune_id'] && !Commune::where('id', $data['commune_id'])
             ->where('region_id', $data['region_id'])->exists()) {
@@ -178,28 +170,9 @@ class OfferController extends Controller
             ->with('status', 'Tu correo fue verificado y la oferta fue publicada correctamente.');
     }
 
-    private function recaptchaIsValid(Request $request)
-    {
-        try {
-            $response = Http::asForm()
-                ->timeout(5)
-                ->post('https://www.google.com/recaptcha/api/siteverify', [
-                    'secret' => config('services.recaptcha.secret_key'),
-                    'response' => $request->input('g-recaptcha-response'),
-                    'remoteip' => $request->ip(),
-                ]);
-
-            return $response->successful() && $response->json('success') === true;
-        } catch (Throwable $exception) {
-            report($exception);
-
-            return false;
-        }
-    }
-
     private function offerData(array $data)
     {
-        unset($data['account_mode'], $data['email'], $data['password'], $data['password_confirmation'], $data['company_name'], $data['g-recaptcha-response']);
+        unset($data['account_mode'], $data['email'], $data['password'], $data['password_confirmation'], $data['company_name']);
 
         $data['status'] = 'abierto';
         $data['min_wage'] = (int) $data['wage_type'] === 1 ? $data['min_wage'] : null;

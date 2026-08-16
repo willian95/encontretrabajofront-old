@@ -59,11 +59,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
-                                    @error('g-recaptcha-response')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
-                                </div>
-
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="title">Título de la oferta</label>
@@ -149,7 +144,6 @@
 @endsection
 
 @push('scripts')
-    <script src="https://www.google.com/recaptcha/api.js?hl=es" async defer></script>
     <script>
         (function () {
             var region = document.getElementById('region_id');
