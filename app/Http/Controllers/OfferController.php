@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Throwable;
@@ -35,7 +36,7 @@ class OfferController extends Controller
             'password' => ['required', 'string', 'min:8'],
             'company_name' => ['nullable', 'required_if:account_mode,register', 'string', 'max:255'],
             'password_confirmation' => ['nullable', 'required_if:account_mode,register', 'same:password'],
-            'captcha' => ['required', 'string'],
+            'g-recaptcha-response' => ['required', 'string'],
             'title' => ['required', 'string', 'max:150'],
             'job_position' => ['required', 'string', 'max:150'],
             'description' => ['required', 'string', 'max:5000'],
@@ -49,8 +50,10 @@ class OfferController extends Controller
             'expiration_date' => ['required', 'date', 'after_or_equal:today'],
         ]);
 
-        if (! $this->captchaIsValid($request, $data['captcha'])) {
-            return back()->withErrors(['captcha' => 'El CAPTCHA no es válido o ya venció.'])->withInput();
+        if (! $this->recaptchaIsValid($request)) {
+            return back()->withErrors([
+                'g-recaptcha-response' => 'No fue posible verificar reCAPTCHA. Inténtalo nuevamente.',
+            ])->withInput();
         }
 
         if ($data['commune_id'] && !Commune::where('id', $data['commune_id'])
@@ -107,29 +110,6 @@ class OfferController extends Controller
 
         return redirect()->route('offers.verify-email')
             ->with('status', 'Enviamos un código de verificación a tu correo electrónico.');
-    }
-
-    public function captcha(Request $request)
-    {
-        $left = random_int(1, 9);
-        $right = random_int(1, 9);
-        $answer = (string) ($left + $right);
-
-        $request->session()->put('offer_captcha', [
-            'answer' => Hash::make($answer),
-            'expires_at' => now()->addMinutes(5)->timestamp,
-        ]);
-
-        $text = $left.' + '.$right.' = ?';
-        $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="180" height="52" viewBox="0 0 180 52">'
-            .'<rect width="180" height="52" rx="6" fill="#edf2f7"/>'
-            .'<path d="M8 12L170 39M20 43L151 8" stroke="#cbd5e0" stroke-width="2"/>'
-            .'<text x="90" y="34" text-anchor="middle" font-family="monospace" font-size="24" fill="#1a202c">'.$text.'</text>'
-            .'</svg>';
-
-        return response($svg, 200)
-            ->header('Content-Type', 'image/svg+xml')
-            ->header('Cache-Control', 'no-store, no-cache, must-revalidate');
     }
 
     public function showEmailVerification(Request $request)
@@ -190,18 +170,28 @@ class OfferController extends Controller
             ->with('status', 'Tu correo fue verificado y la oferta fue publicada correctamente.');
     }
 
-    private function captchaIsValid(Request $request, $answer)
+    private function recaptchaIsValid(Request $request)
     {
-        $captcha = $request->session()->pull('offer_captcha');
+        try {
+            $response = Http::asForm()
+                ->timeout(5)
+                ->post('https://www.google.com/recaptcha/api/siteverify', [
+                    'secret' => config('services.recaptcha.secret_key'),
+                    'response' => $request->input('g-recaptcha-response'),
+                    'remoteip' => $request->ip(),
+                ]);
 
-        return $captcha
-            && ($captcha['expires_at'] ?? 0) >= now()->timestamp
-            && Hash::check($answer, $captcha['answer']);
+            return $response->successful() && $response->json('success') === true;
+        } catch (Throwable $exception) {
+            report($exception);
+
+            return false;
+        }
     }
 
     private function offerData(array $data)
     {
-        unset($data['account_mode'], $data['email'], $data['password'], $data['password_confirmation'], $data['company_name'], $data['captcha']);
+        unset($data['account_mode'], $data['email'], $data['password'], $data['password_confirmation'], $data['company_name'], $data['g-recaptcha-response']);
 
         $data['status'] = 'abierto';
         $data['min_wage'] = (int) $data['wage_type'] === 1 ? $data['min_wage'] : null;

@@ -60,14 +60,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="captcha">CAPTCHA</label>
-                                    <div class="d-flex align-items-center mb-2">
-                                        <img id="captcha-image" src="{{ route('offers.captcha') }}" alt="Resuelve la operación para continuar" width="180" height="52">
-                                        <button id="refresh-captcha" class="btn btn-link" type="button">Cambiar</button>
-                                    </div>
-                                    <input id="captcha" name="captcha" type="text" inputmode="numeric" maxlength="2" class="form-control @error('captcha') is-invalid @enderror" value="" required autocomplete="off" aria-describedby="captcha-help">
-                                    <small id="captcha-help" class="form-text text-muted">Ingresa el resultado de la operación mostrada.</small>
-                                    @error('captcha')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
+                                    @error('g-recaptcha-response')<div class="invalid-feedback d-block">{{ $message }}</div>@enderror
                                 </div>
 
                                 <div class="form-row">
@@ -162,6 +156,7 @@
 @endsection
 
 @push('scripts')
+    <script src="https://www.google.com/recaptcha/api.js?hl=es" async defer></script>
     <script>
         (function () {
             var region = document.getElementById('region_id');
@@ -176,8 +171,6 @@
             var companyNameInput = document.getElementById('company_name');
             var passwordConfirmationField = document.getElementById('password-confirmation-field');
             var passwordConfirmationInput = document.getElementById('password_confirmation');
-            var captchaImage = document.getElementById('captcha-image');
-            var refreshCaptcha = document.getElementById('refresh-captcha');
 
             function updateWageField() {
                 var visible = wageType.value === '1';
@@ -224,9 +217,6 @@
                     accountTabs.forEach(function (item) { item.classList.toggle('active', item === tab); });
                     updateAccountFields();
                 });
-            });
-            refreshCaptcha.addEventListener('click', function () {
-                captchaImage.src = '{{ route('offers.captcha') }}?refresh=' + Date.now();
             });
             updateWageField();
             updateAccountFields();
