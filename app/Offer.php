@@ -21,7 +21,6 @@ class Offer extends Model
         'address',
         'wage_type',
         'min_wage',
-        'max_wage',
         'extra_wage',
         'status',
         'expiration_date',

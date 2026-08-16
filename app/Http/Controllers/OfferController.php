@@ -176,7 +176,6 @@ class OfferController extends Controller
 
         $data['status'] = 'abierto';
         $data['min_wage'] = (int) $data['wage_type'] === 1 ? $data['min_wage'] : null;
-        $data['max_wage'] = null;
         $data['description'] = nl2br(e($data['description']));
 
         return $data;
