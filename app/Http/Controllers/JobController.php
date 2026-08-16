@@ -47,7 +47,12 @@ class JobController extends Controller
             $page = max(1, (int) $request->input('page', 1));
             $skip = ($page - 1) * $dataAmount;
 
-            $offers = Offer::with("user")->withCount(["viewers", "proposals"])->has("user")
+            $offers = Offer::with("user")->withCount([
+                "viewers",
+                "proposals" => function ($query) {
+                    $query->whereNotNull("user_id");
+                },
+            ])->has("user")
             ->where("status", "abierto")
             ->whereDate('expiration_date', '>', Carbon::today()->toDateString())
             ->orderBy("id", "desc")
