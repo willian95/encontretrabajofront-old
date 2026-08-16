@@ -66,7 +66,12 @@ class SearchController extends Controller
 
             $offersCount = (clone $offersQuery)->count();
             $offers = $offersQuery->with("user", "region", "commune", "category")
-                ->withCount("viewers")
+                ->withCount([
+                    "viewers",
+                    "proposals" => function ($query) {
+                        $query->whereNotNull("user_id");
+                    },
+                ])
                 ->orderBy("is_highlighted", "desc")
                 ->orderBy("id", "desc")
                 ->skip($skip)
