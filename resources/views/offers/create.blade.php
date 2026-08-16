@@ -77,22 +77,15 @@
                                     </div>
                                 </div>
 
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="category_id">Categoría</label>
-                                        <select id="category_id" name="category_id" class="form-control @error('category_id') is-invalid @enderror" required>
-                                            <option value="">Selecciona una categoría</option>
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('category_id')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="expiration_date">Fecha de cierre</label>
-                                        <input id="expiration_date" name="expiration_date" type="date" min="{{ now()->format('Y-m-d') }}" class="form-control @error('expiration_date') is-invalid @enderror" value="{{ old('expiration_date', $expirationDate) }}" required>
-                                        @error('expiration_date')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
+                                <div class="form-group">
+                                    <label for="category_id">Categoría</label>
+                                    <select id="category_id" name="category_id" class="form-control @error('category_id') is-invalid @enderror" required>
+                                        <option value="">Selecciona una categoría</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_id')<div class="invalid-feedback">{{ $message }}</div>@enderror
                                 </div>
 
                                 <div class="form-row">

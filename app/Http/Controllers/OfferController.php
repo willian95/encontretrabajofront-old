@@ -24,7 +24,6 @@ class OfferController extends Controller
         return view('offers.create', [
             'categories' => JobCategory::orderBy('name')->get(),
             'regions' => Region::orderBy('name')->get(),
-            'expirationDate' => Carbon::today()->addDays(30)->format('Y-m-d'),
         ]);
     }
 
@@ -47,7 +46,6 @@ class OfferController extends Controller
             'wage_type' => ['required', 'boolean'],
             'min_wage' => ['nullable', 'numeric', 'min:0'],
             'extra_wage' => ['nullable', 'string', 'max:100'],
-            'expiration_date' => ['required', 'date', 'after_or_equal:today'],
         ]);
 
         if (! $this->recaptchaIsValid($request)) {
@@ -70,8 +68,18 @@ class OfferController extends Controller
                 return back()->withErrors(['email' => 'El correo o la contraseña no son válidos.'])->withInput();
             }
 
-            $request->session()->regenerate();
             $user = Auth::user();
+            if ((int) $user->role_id !== 3) {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return back()->withErrors([
+                    'email' => 'Solo las cuentas de empresa pueden publicar ofertas.',
+                ])->withInput();
+            }
+
+            $request->session()->regenerate();
             $offer = $this->createOffer($this->offerData($data), $user->id);
 
             return redirect('/jobs/'.$offer->slug)
@@ -205,6 +213,7 @@ class OfferController extends Controller
     {
         $data['user_id'] = $userId;
         $data['slug'] = $this->uniqueSlug($data['title']);
+        $data['expiration_date'] = Carbon::today()->addDays(90)->toDateString();
 
         return Offer::create($data);
     }
