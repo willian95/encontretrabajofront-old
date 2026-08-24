@@ -5,15 +5,20 @@
         @endphp
 
         @if($ad)
-            <div style="margin-bottom: 1rem;">
+            <div class="ads-sidebar__card card">
                 <a href="{{ $ad->link }}" target="_blank">
-                    @if($ad->type == 'video')
-                        <video style="width:100% !important" controls>
-                            <source src="{{ $ad->image }}" type="video/mp4">
-                        </video>
-                    @else
-                        <img style="width:100% !important" src="{{ $ad->image }}" alt="">
-                    @endif
+                    <div class="ads-sidebar__header">
+                        <p>Aviso publicitario</p>
+                    </div>
+                    <div class="ads-sidebar__content">
+                        @if($ad->type == 'video')
+                            <video controls>
+                                <source src="{{ $ad->image }}" type="video/mp4">
+                            </video>
+                        @else
+                            <img src="{{ $ad->image }}" alt="Aviso publicitario">
+                        @endif
+                    </div>
                 </a>
             </div>
         @endif

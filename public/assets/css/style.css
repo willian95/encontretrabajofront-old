@@ -853,3 +853,41 @@ li.item-menu_a.menu-btn-et_a_li {
 section.buscar-empleo-localizacion {
     margin-bottom: 30px!important;
 }
+/* Avisos publicitarios */
+.ads-sidebar__card {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(10, 124, 167, .10);
+    border-radius: 24px;
+    box-shadow: 0 18px 42px rgba(15, 74, 99, .10);
+    overflow: hidden;
+}
+
+.ads-sidebar__card > a {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+}
+
+.ads-sidebar__header,
+.ads-sidebar__content {
+    padding: 0;
+}
+
+.ads-sidebar__header p {
+    margin: 0;
+    padding: .7rem .75rem;
+    font-size: .77rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #647b88;
+    background: #f5fafb;
+}
+
+.ads-sidebar__content img,
+.ads-sidebar__content video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
