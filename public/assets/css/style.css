@@ -856,7 +856,7 @@ section.buscar-empleo-localizacion {
 /* Avisos publicitarios */
 .ads-sidebar__card {
     margin-bottom: 1rem;
-    border: 1px solid rgba(10, 124, 167, .10);
+    border: 2px solid #0a7ca7;
     border-radius: 24px;
     box-shadow: 0 18px 42px rgba(15, 74, 99, .10);
     overflow: hidden;
