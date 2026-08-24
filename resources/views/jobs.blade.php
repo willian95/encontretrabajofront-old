@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-6">
 
                     <div class="col-md-12" v-if="loading == true">
                         <p class="text-center">
@@ -167,7 +167,7 @@
 
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                     @include('partials.ads-sidebar')
                 </div>
                 
